@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS PRODUCT(
     id int AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     quantity INT NOT NULL CHECK (quantity >=0 ),
+    price decimal(15,2) NOT NULL CHECK(price >=0),
     description TEXT,
     img VARCHAR(255),
     id_productor int NOT NULL,
