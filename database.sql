@@ -70,6 +70,7 @@ ADD FOREIGN KEY (id) REFERENCES USER(id) ON DELETE CASCADE;
 CREATE TABLE IF NOT EXISTS CP(
     id_product int,
     id_cart int,
+    quantity int,
     CONSTRAINT PK_CP PRIMARY KEY(id_product,id_cart)
 )   ENGINE = InnoDB;
 
@@ -94,6 +95,7 @@ ADD FOREIGN KEY (id_user) REFERENCES USER(id) ON DELETE SET NULL;
 CREATE TABLE IF NOT EXISTS OP(
     id_order int,
     id_product int,
+    quantity int,
     CONSTRAINT PK_OP PRIMARY KEY(id_order,id_product)
 )   ENGINE = InnoDB;
 
