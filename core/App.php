@@ -37,7 +37,7 @@ class App{
         $this->params = $arr?array_values($arr):[];
 
         // Call function
-        call_user_func_array([$Cclass, $this->action], $this->params );
+        call_user_func_array([$this->controller, $this->action], $this->params );
 
     }
 
