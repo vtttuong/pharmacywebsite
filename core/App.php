@@ -8,7 +8,6 @@ class App{
     function __construct(){
         
         $arr = $this->UrlProcess();
-
         // Controller
         if( file_exists("./controllers/".$arr[0].".php") ){
             $this->controller = $arr[0];
