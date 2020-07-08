@@ -20,11 +20,21 @@ class CartModel extends DB{
     public function checkout($cart,$user_id)
     {
         try{
-            //create order
-            $stmt = $this->conn->prepare("INSERT INTO ORDERS(id_user) VALUES(:id_user)");
-            $stmt->execute([":id_user"=>$user_id]);
-            
+            //calc total price
+            $price = 0;
+            $stmt = $this->conn->prepare("SELECT price FROM PRODUCT WHERE id=:id");
+            foreach($cart as $ele)
+            {
+                $stmt->execute([":id"=>$ele[0]]);
+                $p = $stmt->fetch(PDO::FETCH_ASSOC);
+                $p = $p['price'];
+                $price += $p*$ele[1];
+            }
 
+            //create order
+            $stmt = $this->conn->prepare("INSERT INTO ORDERS(id_user,price) VALUES(:id_user,:price)");
+            $stmt->execute([":id_user"=>$user_id,":price"=>$price]);
+            
             //get id order
             $stmt = $this->conn->prepare("SELECT LAST_INSERT_ID()");
             $stmt->execute();
