@@ -16,8 +16,7 @@ class UserModel extends DB{
             if($res==null)
                 return false;
             else
-            {   
-                $_SESSION['userlogin'] = true; 
+            {    
                 $_SESSION['id'] = $res['id'];
                 $_SESSION['name'] = $res['name'];}
                 return true;
@@ -84,19 +83,23 @@ class UserModel extends DB{
         $email = $data['email'];
 
         if (!$this->checkUser($username))
-            return false;        
+            return false;
+        if (!$this->checkEmail($email))
+            return false;
+        
         try{
             $stmt = $this->conn->prepare('INSERT INTO 
-            USER(username,password,email,phone,name,birthday,sex) 
-            VALUES(:username,:password,:email,:phone,:name,:birthday,:sex)');
+            USER(username,password,email,phone,name,birthday,address,sex) 
+            VALUES(:username,:password,:email,:phone,:name,:birthday,:address,:sex)');
             $stmt->execute([
                 ":username"=>$data['username'],
                 ":password"=>$data['password'],
                 ":email"=>$data['email'],
-                ":phone"=>'',
+                ":phone"=>$data['phone'],
                 ":name"=>$data['name'],
-                ":birthday"=>'',
-                ":sex"=>''
+                ":birthday"=>$data['birthday'],
+                ":address"=>$data['address'],
+                ":sex"=>$data['sex']
             ]);
             return true;
         }
@@ -106,16 +109,4 @@ class UserModel extends DB{
         }
     }
 
-    public function delete($id){
-
-        //delete on database
-        try{
-            $stmt = $this->conn->prepare("DELETE FROM ADMIN WHERE id = :id");
-            $stmt->execute([":id"=>$id]);
-        }
-        catch(PDOException $e)
-        {
-            return $e->getMessage();
-        }
-    }
 }

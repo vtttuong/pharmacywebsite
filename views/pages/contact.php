@@ -73,23 +73,20 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-flex  flex-column flex-lg-row align-items-center w-100 justify-content-between">
               <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <li class="nav-item active">
+                  <a class="nav-link" href="<?php echo HOST;?>home">Home </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About </a>
+                  <a class="nav-link" href="<?php echo HOST;?>about"> About </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="medicine.html"> Medicine </a>
+                  <a class="nav-link" href="<?php echo HOST;?>buy"> Online Buy </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="buy.html"> Online Buy </a>
+                  <a class="nav-link" href="<?php echo HOST;?>cart"> Cart </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="news.html"> News </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact us</a>
+                  <a class="nav-link" href="<?php echo HOST;?>contact">Contact us <span class="sr-only">(current)</span></a>
                 </li>
               </ul>
               <form class="form-inline ">
@@ -97,12 +94,18 @@
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
               <div class="login_btn-contanier ml-0 ml-lg-5">
-                <a href="">
-                  <img src="<?php echo HOST;?>assets/images/user.png" alt="">
-                  <span>
-                    Login
-                  </span>
-                </a>
+              <?php if(!isset($_SESSION['id']))
+                echo'
+                <a href="'.HOST.'user">
+                  <img src="'.HOST.'assets/images/user.png" alt="">
+                  <span>Login</span>
+                </a>';
+                else echo'
+                <a href="'.HOST.'user/change_pass">
+                  <img src="'.HOST.'assets/images/user.png" alt=""></a>
+                  <a href="'.HOST.'user/logout"><span>Logout</span></a>
+                ';
+                ?>
               </div>
             </div>
           </div>
@@ -207,17 +210,14 @@
               Menu
             </h4>
             <ul class="navbar-nav  ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo HOST;?>home">Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"> About </a>
+                <a class="nav-link" href="<?php echo HOST;?>about"> About </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="medicine.html"> Medicine </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buy.html"> Online Buy </a>
+                <a class="nav-link" href="<?php echo HOST;?>buy"> Online Buy </a>
               </li>
             </ul>
           </div>

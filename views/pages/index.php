@@ -81,7 +81,7 @@
                   <a class="nav-link" href="<?php echo HOST;?>buy"> Online Buy </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo HOST;?>news"> News </a>
+                  <a class="nav-link" href="<?php echo HOST;?>cart"> Cart </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo HOST;?>contact">Contact us</a>
@@ -92,13 +92,20 @@
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
               <div class="login_btn-contanier ml-0 ml-lg-5">
-                <a href="">
-                  <img src="<?php echo HOST;?>assets/images/user.png" alt="">
-                  <span>
-                    Login
-                  </span>
-                </a>
+                <?php if(!isset($_SESSION['id']))
+                echo'
+                <a href="'.HOST.'user">
+                  <img src="'.HOST.'assets/images/user.png" alt="">
+                  <span>Login</span>
+                </a>';
+                else echo'
+                <a href="'.HOST.'user/change_pass">
+                  <img src="'.HOST.'assets/images/user.png" alt=""></a>
+                  <a href="'.HOST.'user/logout"><span>Logout</span></a>
+                ';
+                ?>
               </div>
+             
             </div>
           </div>
 
