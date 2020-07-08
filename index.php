@@ -7,7 +7,7 @@ define('PATH_CONTROLLER',__DIR__ . '/controllers');
 define('PATH_CORE',__DIR__.'/core');
 define('PATH_MODEL',__DIR__.'/models');
 
-define('HOST','http://localhost/weblayout/');\
+define('HOST','http://localhost/weblayout/');
 
 //turn on debug mode
 error_reporting(E_ALL);
