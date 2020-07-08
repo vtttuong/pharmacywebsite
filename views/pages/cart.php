@@ -146,7 +146,7 @@
               foreach($data as $product)
               {
               ?>
-                <tr>
+                <tr id="<?php echo $product[0]['id'];?>">
                   <th scope="row" class="border-0">
                     <div class="p-2">
                       <img src="<?php echo $product[0]['img'];?>" alt="" width="70" class="img-fluid rounded shadow-sm">
@@ -155,14 +155,14 @@
                       </div>
                     </div>
                   </th>
-                  <td class="border-0 align-middle"><strong><?php echo $product[0]['price']; ?></strong></td>
+                  <td class="border-0 align-middle"><strong class="priceProduct <?php echo $product[0]['id']; ?>" ><?php echo $product[0]['price']; ?> VND</strong></td>
                   <td class="border-0 align-middle">
-                    <strong>   
-                      <input type="number" step="1" max="99" min="1" value="<?php echo $product[1];?>" title="Qty" class="qty"
+                    <strong>
+                      <input type="number" step="1" max="99" min="1" value="<?php echo $product[1];?>" title="Qty" class="qty <?php echo $product[0]['id']; ?>" data-datac="<?php echo $product[0]['id']; ?>"
                        size="4" style="text-align:center; font-weight:bold; color: #212529;">
                     </strong>
                   </td>
-                  <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                  <td class="border-0 align-middle"><a href="#" class="text-dark btnRemove" data-datac="<?php echo $product[0]['id'];?>"><i class="fa fa-trash"></i></a></td>
                 </tr>
               <?php
               }
@@ -197,13 +197,13 @@
           <div class="p-4">
             <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
             <ul class="list-unstyled mb-4">
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong id="subTotal"></strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong id="shipFee"></strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>0.00 VND</strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold">$400.00</h5>
+                <h5 class="font-weight-bold" id="Total"></h5>
               </li>
-            </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+            </ul><a href="<?php echo HOST;?>cart/checkout" id="btnCheckout" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
           </div>
         </div>
       </div>

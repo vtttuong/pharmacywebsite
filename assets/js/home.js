@@ -27,16 +27,21 @@ function getCookie(dataObj) {
 
 $(document).ready(function() {
     $(".btnBuy").click(function() {
+        let flag = false;
         var id = $(this).data('datac');
         let cart = getCookie('cart');
         if (cart.length == 0) {
             cart.push([id, 1]);
         } else {
             for (let i = 0; i < cart.length; i++) {
-                if (cart[i][0] = id) {
+                if (cart[i][0] == id) {
                     cart[i][1]++;
+                    flag = true;
                     break;
                 }
+            }
+            if (!flag) {
+                cart.push([id, 1]);
             }
         }
         //update cookie
