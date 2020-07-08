@@ -485,9 +485,9 @@
           <div class="item">
             <div class="box">
               <div class="btn_container">
-                <a href="">
+                <button id="btnBuy" data-datac="<?php echo $product['id']; ?>">
                   Buy Now
-                </a>
+                </button>
               </div>
               <div class="img-box">
                 <img src="<?php echo $product['img'];?>" alt="">
@@ -498,9 +498,7 @@
                     <?php echo $product['name'];?>
                   </h6>
                   <h6 class="price">
-                    <span>
-                      $
-                    </span>
+    
                     <?php echo $product['price'];?>VNĐ
                   </h6>
                 </div>
