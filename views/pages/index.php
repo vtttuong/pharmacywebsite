@@ -26,9 +26,9 @@
   <!-- fonts style -->
  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="http://localhost:8080/weblayout/assets/css/style.css" rel="stylesheet" />
+  <link href="<?php echo HOST;?>assets/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="http://localhost:8080/weblayout/assets/css/responsive.css" rel="stylesheet" />
+  <link href="<?php echo HOST;?>assets/css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -39,18 +39,18 @@
         <div class="top_contact-container">
           <div class="tel_container">
             <a href="">
-              <img src="http://localhost:8080/weblayout/assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
+              <img src="<?php echo HOST;?>assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
             </a>
           </div>
           <div class="social-container">
             <a href="">
-              <img src="http://localhost:8080/weblayout/assets/images/fb.png" alt="" class="s-1">
+              <img src="<?php echo HOST;?>assets/images/fb.png" alt="" class="s-1">
             </a>
             <a href="">
-              <img src="http://localhost:8080/weblayout/assets/images/twitter.png" alt="" class="s-2">
+              <img src="<?php echo HOST;?>assets/images/twitter.png" alt="" class="s-2">
             </a>
             <a href="">
-              <img src="http://localhost:8080/weblayout/assets/images/instagram.png" alt="" class="s-3">
+              <img src="<?php echo HOST;?>assets/images/instagram.png" alt="" class="s-3">
             </a>
           </div>
         </div>
@@ -58,7 +58,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
           <a class="navbar-brand" href="index">
-            <img src="http://localhost:8080/weblayout/assets/images/logo.png" alt="">
+            <img src="<?php echo HOST;?>assets/images/logo.png" alt="">
             <span>
               SkyWall
             </span>
@@ -102,7 +102,7 @@
                       $loginCheck = $_SESSION['userlogin'];
                       if ($loginCheck==false){
                         echo '<a href="user">
-                        <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                        <img src="'.HOST.'assets/images/user.png" alt="">
                         <span>Login</span></a>';
                       }
                       else

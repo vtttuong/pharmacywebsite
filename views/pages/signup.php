@@ -5,26 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
-  <link rel="icon" type="image/png" href="http://localhost:8080/weblayout/assets/images/icons/favicon.ico"/>
+  <link rel="icon" type="image/png" href="<?php echo HOST;?>assets/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/vendor/animate/animate.css">
 <!--===============================================================================================-->  
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/vendor/css-hamburgers/hamburgers.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/vendor/animsition/css/animsition.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/vendor/select2/select2.min.css">
 <!--===============================================================================================-->  
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/vendor/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/css/util.css">
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo HOST;?>assets/css/main.css">
 <!--===============================================================================================-->
 
 </head>
@@ -103,7 +103,7 @@
 
         </form>
 
-        <div class="login100-more" style="background-image: url('http://localhost:8080/weblayout/assets/images/bg-login.jpg');">
+        <div class="login100-more" style="background-image: url('<?php echo HOST;?>assets/images/bg-login.jpg');">
         </div>
       </div>
     </div>
@@ -114,21 +114,21 @@
   
   
 <!--===============================================================================================-->
-  <script src="http://localhost:8080/weblayout/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="<?php echo HOST;?>assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-  <script src="http://localhost:8080/weblayout/assets/vendor/animsition/js/animsition.min.js"></script>
+  <script src="<?php echo HOST;?>assets/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-  <script src="http://localhost:8080/weblayout/assets/vendor/bootstrap/js/popper.js"></script>
-  <script src="http://localhost:8080/weblayout/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="<?php echo HOST;?>assets/vendor/bootstrap/js/popper.js"></script>
+  <script src="<?php echo HOST;?>assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-  <script src="http://localhost:8080/weblayout/assets/vendor/select2/select2.min.js"></script>
+  <script src="<?php echo HOST;?>assets/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-  <script src="http://localhost:8080/weblayout/assets/vendor/daterangepicker/moment.min.js"></script>
-  <script src="http://localhost:8080/weblayout/assets/vendor/daterangepicker/daterangepicker.js"></script>
+  <script src="<?php echo HOST;?>assets/vendor/daterangepicker/moment.min.js"></script>
+  <script src="<?php echo HOST;?>assets/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-  <script src="http://localhost:8080/weblayout/assets/vendor/countdowntime/countdowntime.js"></script>
+  <script src="<?php echo HOST;?>assets/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-  <script src="http://localhost:8080/weblayout/assets/js/main.js"></script>
+  <script src="<?php echo HOST;?>assets/js/main.js"></script>
 
 </body>
 </html>

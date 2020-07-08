@@ -5,9 +5,9 @@ class DB{
     public $conn;
 
     protected $DB_HOST = "localhost";
-    protected $USER = "root";
-    protected $PASSWORD = "";
-    protected $DB_NAME = "vtttuong_ass2";
+    protected $USER = "phpmyadmin";
+    protected $PASSWORD = "Hoanglongle2402@";
+    protected $DB_NAME = "Assignment";
     protected $options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

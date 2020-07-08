@@ -15,7 +15,7 @@ class UserController extends Controller
      public function logout()
     { 
         session_destroy();
-        header("Location:http://localhost:8080/weblayout/index");
+        header("Location:".HOST);
     }
 
     public function insertuser($data)
