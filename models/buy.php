@@ -15,11 +15,6 @@ class BuyModel extends DB{
         }
     }
 
-<<<<<<< HEAD
-    // constructor
-    function __constructor(){
-        //
-=======
     public function fetchProduct($id_ctgr){
         try{
             $stmt = $this->conn->prepare("SELECT id,name,img,price,quantity FROM PRODUCT WHERE id_category = :id_ctgr ");
@@ -31,6 +26,5 @@ class BuyModel extends DB{
         {
             die($e->getMessage());
         }
->>>>>>> master
     }
 }

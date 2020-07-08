@@ -95,15 +95,6 @@
                 </li>
 
                 <li class="nav-item">
-<<<<<<< HEAD
-                  <a class="nav-link" href="buy"> Online Buy </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="news"> News </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact">Contact us</a>
-=======
                   <a class="nav-link" href="<?php echo HOST;?>buy"> Online Buy </a>
                 </li>
                 <li class="nav-item">
@@ -111,7 +102,6 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo HOST;?>contact">Contact us</a>
->>>>>>> master
                 </li>
               </ul>
               <form class="form-inline ">
