@@ -23,15 +23,15 @@
 
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/css/bootstrap.css" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="<?php echo HOST;?>assets/css/style.css" rel="stylesheet" />
+  <link href="http://localhost:8080/weblayout/assets/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="<?php echo HOST;?>assets/css/responsive.css" rel="stylesheet" />
+  <link href="http://localhost:8080/weblayout/assets/css/responsive.css" rel="stylesheet" />
 </head>
 
 <body class="sub_page">
@@ -42,18 +42,18 @@
         <div class="top_contact-container">
           <div class="tel_container">
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
+              <img src="http://localhost:8080/weblayout/assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
             </a>
           </div>
           <div class="social-container">
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/fb.png" alt="" class="s-1">
+              <img src="http://localhost:8080/weblayout/assets/images/fb.png" alt="" class="s-1">
             </a>
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/twitter.png" alt="" class="s-2">
+              <img src="http://localhost:8080/weblayout/assets/images/twitter.png" alt="" class="s-2">
             </a>
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/instagram.png" alt="" class="s-3">
+              <img src="http://localhost:8080/weblayout/assets/images/instagram.png" alt="" class="s-3">
             </a>
           </div>
         </div>
@@ -61,7 +61,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
           <a class="navbar-brand" href="index">
-            <img src="<?php echo HOST;?>assets/images/logo.png" alt="">
+            <img src="http://localhost:8080/weblayout/assets/images/logo.png" alt="">
             <span>
               SkyWall
             </span>
@@ -81,10 +81,13 @@
                   <a class="nav-link" href="about"> About </a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="medicine"> Medicine </a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="buy"> Online Buy </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="cart"> Cart </a>
+                  <a class="nav-link" href="news"> News </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contact">Contact us</a>
@@ -95,12 +98,31 @@
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
               <div class="login_btn-contanier ml-0 ml-lg-5">
-                <a href="">
-                  <img src="<?php echo HOST;?>assets/images/user.png" alt="">
-                  <span>
-                    Login
-                  </span>
-                </a>
+                <?php 
+                    if(isset($_SESSION['userlogin']))
+                    {
+                      $loginCheck = $_SESSION['userlogin'];
+                      if ($loginCheck==false){
+                        echo '<a href="user">
+                        <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                        <span>Login</span></a>';
+                      }
+                      else
+                      {
+                        echo '<a href="user/logout">
+                        <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                        <span>Logout</span></a>';
+                      }
+                    }
+                    else
+                    {
+                       echo '<a href="user">
+                      <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                      <span>Login</span></a>';
+                    }
+  
+                ?>
+                
               </div>
             </div>
           </div>
@@ -142,31 +164,53 @@
                 </tr>
               </thead>
               <tbody>
-              <?php
-              foreach($data as $product)
-              {
-              ?>
-                <tr id="<?php echo $product[0]['id'];?>">
+                <tr>
                   <th scope="row" class="border-0">
                     <div class="p-2">
-                      <img src="<?php echo $product[0]['img'];?>" alt="" width="70" class="img-fluid rounded shadow-sm">
+                      <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
                       <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><?php echo $product[0]['name'];?></a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: <?php echo $product[0]['category'];?></span>
+                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
                       </div>
                     </div>
                   </th>
-                  <td class="border-0 align-middle"><strong class="priceProduct <?php echo $product[0]['id']; ?>" ><?php echo $product[0]['price']; ?> VND</strong></td>
-                  <td class="border-0 align-middle">
-                    <strong>
-                      <input type="number" step="1" max="99" min="1" value="<?php echo $product[1];?>" title="Qty" class="qty <?php echo $product[0]['id']; ?>" data-datac="<?php echo $product[0]['id']; ?>"
-                       size="4" style="text-align:center; font-weight:bold; color: #212529;">
-                    </strong>
-                  </td>
-                  <td class="border-0 align-middle"><a href="#" class="text-dark btnRemove" data-datac="<?php echo $product[0]['id'];?>"><i class="fa fa-trash"></i></a></td>
+                  <td class="border-0 align-middle"><strong>$79.00</strong></td>
+                  <td class="border-0 align-middle"><strong>   
+                    <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
+                                           size="4" style="text-align:center; font-weight:bold; color: #212529;"></strong></td>
+                  
+                                 
+                                
+                  <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
                 </tr>
-              <?php
-              }
-              ?>
+                <tr>
+                  <th scope="row">
+                    <div class="p-2">
+                      <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-3_cexmhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Lumix camera lense</a></h5><span class="text-muted font-weight-normal font-italic">Category: Electronics</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="align-middle"><strong>$79.00</strong></td>
+                  <td class="align-middle"><strong><input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
+                                           size="4" style="text-align:center; font-weight:bold; color: #212529;"></strong></td>
+                  <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="p-2">
+                      <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-2_qxjis2.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Gray Nike running shoe</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fashion</span>
+                      </div>
+                    </div>
+                    <td class="align-middle"><strong>$79.00</strong></td>
+                    <td class="align-middle"><strong><input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
+                                           size="4" style="text-align:center; font-weight:bold; color: #212529;"></strong></td>
+                    <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -197,13 +241,13 @@
           <div class="p-4">
             <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
             <ul class="list-unstyled mb-4">
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong id="subTotal"></strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong id="shipFee"></strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>0.00 VND</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold" id="Total"></h5>
+                <h5 class="font-weight-bold">$400.00</h5>
               </li>
-            </ul><a href="<?php echo HOST;?>cart/checkout" id="btnCheckout" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+            </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
           </div>
         </div>
       </div>
@@ -223,7 +267,7 @@
             </h4>
             <div class="box">
               <div class="img-box">
-                <img src="<?php echo HOST;?>assets/images/telephone-symbol-button.png" alt="">
+                <img src="http://localhost:8080/weblayout/assets/images/telephone-symbol-button.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -233,7 +277,7 @@
             </div>
             <div class="box">
               <div class="img-box">
-                <img src="<?php echo HOST;?>assets/images/email.png" alt="">
+                <img src="http://localhost:8080/weblayout/assets/images/email.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -295,12 +339,8 @@
   </section>
   <!-- footer section -->
 
-  <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </script>
+  <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/bootstrap.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
   </script>
   <script type="text/javascript">
@@ -344,7 +384,6 @@
       }
     });
   </script>
-  <script src="<?php echo HOST; ?>assets/js/cart.js"></script>
 </body>
 
 </html>

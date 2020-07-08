@@ -11,7 +11,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Assignment 1 Web</title>
+  <title>Assignment 2 Web</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
@@ -22,13 +22,14 @@
 
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/css/bootstrap.css" />
+
   <!-- fonts style -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="<?php echo HOST;?>assets/css/style.css" rel="stylesheet" />
+  <link href="http://localhost:8080/weblayout/assets/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="<?php echo HOST;?>assets/css/responsive.css" rel="stylesheet" />
+  <link href="http://localhost:8080/weblayout/assets/css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -39,26 +40,26 @@
         <div class="top_contact-container">
           <div class="tel_container">
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
+              <img src="http://localhost:8080/weblayout/assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
             </a>
           </div>
           <div class="social-container">
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/fb.png" alt="" class="s-1">
+              <img src="http://localhost:8080/weblayout/assets/images/fb.png" alt="" class="s-1">
             </a>
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/twitter.png" alt="" class="s-2">
+              <img src="http://localhost:8080/weblayout/assets/images/twitter.png" alt="" class="s-2">
             </a>
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/instagram.png" alt="" class="s-3">
+              <img src="http://localhost:8080/weblayout/assets/images/instagram.png" alt="" class="s-3">
             </a>
           </div>
         </div>
       </div>
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
-          <a class="navbar-brand" href="index.html">
-            <img src="<?php echo HOST;?>assets/images/logo.png" alt="">
+          <a class="navbar-brand" href="index">
+            <img src="http://localhost:8080/weblayout/assets/images/logo.png" alt="">
             <span>
               SkyWall
             </span>
@@ -72,32 +73,55 @@
             <div class="d-flex  flex-column flex-lg-row align-items-center w-100 justify-content-between">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="<?php echo HOST;?>home">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo HOST;?>about"> About </a>
+                  <a class="nav-link" href="about"> About </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo HOST;?>buy"> Online Buy </a>
+                  <a class="nav-link" href="medicine"> Medicine </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo HOST;?>news"> News </a>
+                  <a class="nav-link" href="buy"> Online Buy </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo HOST;?>contact">Contact us</a>
+                  <a class="nav-link" href="news"> News </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact us</a>
                 </li>
               </ul>
               <form class="form-inline ">
                 <input type="search" placeholder="Search">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
+           
               <div class="login_btn-contanier ml-0 ml-lg-5">
-                <a href="">
-                  <img src="<?php echo HOST;?>assets/images/user.png" alt="">
-                  <span>
-                    Login
-                  </span>
-                </a>
+                <?php 
+                    if(isset($_SESSION['userlogin']))
+                    {
+                      $loginCheck = $_SESSION['userlogin'];
+                      if ($loginCheck==false){
+                        echo '<a href="user">
+                        <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                        <span>Login</span></a>';
+                      }
+                      else
+                      {
+                        echo '<a href="user/logout">
+                        <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                        <span>Logout</span></a>';
+                      }
+                    }
+                    else
+                    {
+                       echo '<a href="user">
+                      <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                      <span>Login</span></a>';
+                    }
+  
+                ?>
+                
               </div>
             </div>
           </div>
@@ -120,7 +144,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="img-box">
-                    <img src="<?php echo HOST;?>assets/images/medicine.png" alt="">
+                    <img src="http://localhost:8080/weblayout/assets/images/medicine.png" alt="">
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -138,7 +162,7 @@
                       believable.
                     </p>
                     <div>
-                      <a href="<?php echo HOST;?>buy">
+                      <a href="">
                         Buy Now
                       </a>
                     </div>
@@ -152,7 +176,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="img-box">
-                    <img src="<?php echo HOST;?>assets/images/medicine.png" alt="">
+                    <img src="http://localhost:8080/weblayout/assets/images/medicine.png" alt="">
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -170,7 +194,7 @@
                       believable.
                     </p>
                     <div>
-                      <a href="<?php echo HOST;?>buy">
+                      <a href="">
                         Buy Now
                       </a>
                     </div>
@@ -184,7 +208,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="img-box">
-                    <img src="<?php echo HOST;?>assets/images/medicine.png" alt="">
+                    <img src="http://localhost:8080/weblayout/assets/images/medicine.png" alt="">
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -235,23 +259,23 @@
               x="0px" y="0px" viewBox="0 0 422.518 422.518" style="enable-background:new 0 0 422.518 422.518;"
               xml:space="preserve">
               <path d="M422.512,215.424c0-0.079-0.004-0.158-0.005-0.237c-0.116-5.295-4.368-9.514-9.727-9.514h-2.554l-39.443-76.258
-            c-1.664-3.22-4.983-5.225-8.647-5.226l-67.34-0.014l2.569-20.364c0.733-8.138-1.783-15.822-7.086-21.638
-            c-5.293-5.804-12.683-9.001-20.81-9.001h-209c-5.255,0-9.719,4.066-10.22,9.308l-2.095,16.778h119.078
-            c7.732,0,13.836,6.268,13.634,14c-0.203,7.732-6.635,14-14.367,14H126.78c0.007,0.02,0.014,0.04,0.021,0.059H10.163
-            c-5.468,0-10.017,4.432-10.16,9.9c-0.143,5.468,4.173,9.9,9.641,9.9H164.06c7.168,1.104,12.523,7.303,12.326,14.808
-            c-0.216,8.242-7.039,14.925-15.267,14.994H54.661c-5.523,0-10.117,4.477-10.262,10c-0.145,5.523,4.215,10,9.738,10h105.204
-            c7.273,1.013,12.735,7.262,12.537,14.84c-0.217,8.284-7.109,15-15.393,15H35.792v0.011H25.651c-5.523,0-10.117,4.477-10.262,10
-            c-0.145,5.523,4.214,10,9.738,10h8.752l-3.423,35.818c-0.734,8.137,1.782,15.821,7.086,21.637c5.292,5.805,12.683,9.001,20.81,9.001
-            h7.55C69.5,333.8,87.3,349.345,109.073,349.345c21.773,0,40.387-15.545,45.06-36.118h94.219c7.618,0,14.83-2.913,20.486-7.682
-            c5.172,4.964,12.028,7.682,19.514,7.682h1.55c3.597,20.573,21.397,36.118,43.171,36.118c21.773,0,40.387-15.545,45.06-36.118h6.219
-            c16.201,0,30.569-13.171,32.029-29.36l6.094-67.506c0.008-0.091,0.004-0.181,0.01-0.273c0.01-0.139,0.029-0.275,0.033-0.415
-            C422.52,215.589,422.512,215.508,422.512,215.424z M109.597,329.345c-13.785,0-24.707-11.214-24.346-24.999
-            c0.361-13.786,11.87-25.001,25.655-25.001c13.785,0,24.706,11.215,24.345,25.001C134.89,318.131,123.382,329.345,109.597,329.345z
+             c-1.664-3.22-4.983-5.225-8.647-5.226l-67.34-0.014l2.569-20.364c0.733-8.138-1.783-15.822-7.086-21.638
+             c-5.293-5.804-12.683-9.001-20.81-9.001h-209c-5.255,0-9.719,4.066-10.22,9.308l-2.095,16.778h119.078
+             c7.732,0,13.836,6.268,13.634,14c-0.203,7.732-6.635,14-14.367,14H126.78c0.007,0.02,0.014,0.04,0.021,0.059H10.163
+             c-5.468,0-10.017,4.432-10.16,9.9c-0.143,5.468,4.173,9.9,9.641,9.9H164.06c7.168,1.104,12.523,7.303,12.326,14.808
+             c-0.216,8.242-7.039,14.925-15.267,14.994H54.661c-5.523,0-10.117,4.477-10.262,10c-0.145,5.523,4.215,10,9.738,10h105.204
+             c7.273,1.013,12.735,7.262,12.537,14.84c-0.217,8.284-7.109,15-15.393,15H35.792v0.011H25.651c-5.523,0-10.117,4.477-10.262,10
+             c-0.145,5.523,4.214,10,9.738,10h8.752l-3.423,35.818c-0.734,8.137,1.782,15.821,7.086,21.637c5.292,5.805,12.683,9.001,20.81,9.001
+             h7.55C69.5,333.8,87.3,349.345,109.073,349.345c21.773,0,40.387-15.545,45.06-36.118h94.219c7.618,0,14.83-2.913,20.486-7.682
+             c5.172,4.964,12.028,7.682,19.514,7.682h1.55c3.597,20.573,21.397,36.118,43.171,36.118c21.773,0,40.387-15.545,45.06-36.118h6.219
+             c16.201,0,30.569-13.171,32.029-29.36l6.094-67.506c0.008-0.091,0.004-0.181,0.01-0.273c0.01-0.139,0.029-0.275,0.033-0.415
+             C422.52,215.589,422.512,215.508,422.512,215.424z M109.597,329.345c-13.785,0-24.707-11.214-24.346-24.999
+             c0.361-13.786,11.87-25.001,25.655-25.001c13.785,0,24.706,11.215,24.345,25.001C134.89,318.131,123.382,329.345,109.597,329.345z
               M333.597,329.345c-13.785,0-24.706-11.214-24.346-24.999c0.361-13.786,11.87-25.001,25.655-25.001
-            c13.785,0,24.707,11.215,24.345,25.001C358.89,318.131,347.382,329.345,333.597,329.345z M396.457,282.588
-            c-0.52,5.767-5.823,10.639-11.58,10.639h-6.727c-4.454-19.453-21.744-33.882-42.721-33.882c-20.977,0-39.022,14.429-44.494,33.882
-            h-2.059c-2.542,0-4.81-0.953-6.389-2.685c-1.589-1.742-2.337-4.113-2.106-6.676l12.609-139.691l28.959,0.006l-4.59,50.852
-            c-0.735,8.137,1.78,15.821,7.083,21.637c5.292,5.806,12.685,9.004,20.813,9.004h56.338L396.457,282.588z" />
+             c13.785,0,24.707,11.215,24.345,25.001C358.89,318.131,347.382,329.345,333.597,329.345z M396.457,282.588
+             c-0.52,5.767-5.823,10.639-11.58,10.639h-6.727c-4.454-19.453-21.744-33.882-42.721-33.882c-20.977,0-39.022,14.429-44.494,33.882
+             h-2.059c-2.542,0-4.81-0.953-6.389-2.685c-1.589-1.742-2.337-4.113-2.106-6.676l12.609-139.691l28.959,0.006l-4.59,50.852
+             c-0.735,8.137,1.78,15.821,7.083,21.637c5.292,5.806,12.685,9.004,20.813,9.004h56.338L396.457,282.588z" />
               <g>
               </g>
               <g>
@@ -335,45 +359,45 @@
                 <g>
                   <path
                     d="M107.712,181.769l-7.938,7.705c-1.121,1.089-1.753,2.584-1.753,4.146v3.288c0,3.191,2.588,5.779,5.78,5.779h47.4
-                c3.196,0,5.782-2.588,5.782-5.779v-4.256c0-3.191-2.586-5.78-5.782-5.78h-26.19l0.722-0.664
-                c17.117-16.491,29.232-29.471,29.232-46.372c0-13.513-8.782-27.148-28.409-27.148c-8.568,0-16.959,2.75-23.629,7.74
-                c-2.166,1.625-2.918,4.537-1.803,7.007l1.458,3.224c0.708,1.568,2.074,2.739,3.735,3.195c1.651,0.456,3.433,0.148,4.842-0.836
-                c4.289-2.995,8.704-4.515,13.127-4.515c8.608,0,12.971,4.28,12.971,12.662C137.142,152.524,127.72,162.721,107.712,181.769z" />
+                 c3.196,0,5.782-2.588,5.782-5.779v-4.256c0-3.191-2.586-5.78-5.782-5.78h-26.19l0.722-0.664
+                 c17.117-16.491,29.232-29.471,29.232-46.372c0-13.513-8.782-27.148-28.409-27.148c-8.568,0-16.959,2.75-23.629,7.74
+                 c-2.166,1.625-2.918,4.537-1.803,7.007l1.458,3.224c0.708,1.568,2.074,2.739,3.735,3.195c1.651,0.456,3.433,0.148,4.842-0.836
+                 c4.289-2.995,8.704-4.515,13.127-4.515c8.608,0,12.971,4.28,12.971,12.662C137.142,152.524,127.72,162.721,107.712,181.769z" />
                 </g>
                 <g>
                   <path d="M194.107,114.096c-0.154-0.014-0.31-0.02-0.464-0.02h-1.765c-1.89,0-3.658,0.923-4.738,2.469l-35.4,50.66
-                c-0.678,0.971-1.041,2.127-1.041,3.311v4.061c0,3.192,2.586,5.78,5.778,5.78h32.322v16.551c0,3.191,2.586,5.779,5.778,5.779h5.519
-                c3.19,0,5.781-2.588,5.781-5.779v-16.551h5.698c3.192,0,5.781-2.588,5.781-5.78v-3.753c0-3.19-2.589-5.779-5.781-5.779h-5.698
-                v-45.189c0-3.19-2.591-5.779-5.781-5.779h-5.519C194.419,114.077,194.261,114.083,194.107,114.096z M188.799,165.045h-17.453
-                c4.434-6.438,12.015-17.487,17.453-25.653V165.045z" />
+                 c-0.678,0.971-1.041,2.127-1.041,3.311v4.061c0,3.192,2.586,5.78,5.778,5.78h32.322v16.551c0,3.191,2.586,5.779,5.778,5.779h5.519
+                 c3.19,0,5.781-2.588,5.781-5.779v-16.551h5.698c3.192,0,5.781-2.588,5.781-5.78v-3.753c0-3.19-2.589-5.779-5.781-5.779h-5.698
+                 v-45.189c0-3.19-2.591-5.779-5.781-5.779h-5.519C194.419,114.077,194.261,114.083,194.107,114.096z M188.799,165.045h-17.453
+                 c4.434-6.438,12.015-17.487,17.453-25.653V165.045z" />
                 </g>
                 <g>
                   <path
                     d="M157.906,290.377c-68.023,0-123.365-55.342-123.365-123.365c0-64.412,49.625-117.443,112.647-122.895v19.665
-                c0,1.397,0.771,2.681,2.003,3.337c0.558,0.298,1.169,0.444,1.778,0.444c0.737,0,1.474-0.216,2.108-0.643l44.652-30
-                c1.046-0.702,1.673-1.879,1.673-3.139c0-1.259-0.627-2.437-1.673-3.139l-44.652-30c-1.159-0.779-2.654-0.857-3.887-0.198
-                c-1.232,0.657-2.003,1.941-2.003,3.337v15.254C70.364,24.547,9.54,88.806,9.54,167.011c0,81.809,66.558,148.365,148.365,148.365
-                c37.876,0,73.934-14.271,101.532-40.183l-17.111-18.226C219.38,278.512,189.4,290.377,157.906,290.377z" />
+                 c0,1.397,0.771,2.681,2.003,3.337c0.558,0.298,1.169,0.444,1.778,0.444c0.737,0,1.474-0.216,2.108-0.643l44.652-30
+                 c1.046-0.702,1.673-1.879,1.673-3.139c0-1.259-0.627-2.437-1.673-3.139l-44.652-30c-1.159-0.779-2.654-0.857-3.887-0.198
+                 c-1.232,0.657-2.003,1.941-2.003,3.337v15.254C70.364,24.547,9.54,88.806,9.54,167.011c0,81.809,66.558,148.365,148.365,148.365
+                 c37.876,0,73.934-14.271,101.532-40.183l-17.111-18.226C219.38,278.512,189.4,290.377,157.906,290.377z" />
                 </g>
                 <g>
                   <path d="M284.552,89.689c-5.111-8.359-11.088-16.252-17.759-23.456l-18.344,16.985c5.552,5.995,10.522,12.562,14.776,19.515
-                L284.552,89.689z" />
+                 L284.552,89.689z" />
                 </g>
                 <g>
                   <path d="M280.146,150.258l24.773-3.363c-1.322-9.74-3.625-19.373-6.846-28.632l-23.612,8.211
-                C277.135,134.163,279.047,142.165,280.146,150.258z" />
+                 C277.135,134.163,279.047,142.165,280.146,150.258z" />
                 </g>
                 <g>
                   <path d="M242.999,45.459c-8.045-5.643-16.678-10.496-25.66-14.427l-10.022,22.903c7.464,3.267,14.64,7.301,21.327,11.991
-                L242.999,45.459z" />
+                 L242.999,45.459z" />
                 </g>
                 <g>
                   <path d="M253.208,245.353l19.303,15.887c6.244-7.587,11.75-15.817,16.363-24.462l-22.055-11.771
-                C262.983,232.195,258.404,239.041,253.208,245.353z" />
+                 C262.983,232.195,258.404,239.041,253.208,245.353z" />
                 </g>
                 <g>
                   <path d="M280.908,176.552c-0.622,8.157-2.061,16.264-4.273,24.093l24.057,6.802c2.666-9.426,4.396-19.18,5.146-28.99
-                L280.908,176.552z" />
+                 L280.908,176.552z" />
                 </g>
               </g>
               <g>
@@ -444,7 +468,7 @@
               It is a long established fact that a reader will be distracted by
             </p>
             <div>
-              <a href="<?php echo HOST;?>buy">
+              <a href="">
                 Buy Now
               </a>
             </div>
@@ -452,7 +476,7 @@
         </div>
         <div class="col-lg-7 col-md-5">
           <div class="img-box">
-            <img src="<?php echo HOST;?>assets/images/medicines.jpg" alt="">
+            <img src="http://localhost:8080/weblayout/assets/images/medicines.jpg" alt="">
           </div>
         </div>
       </div>
@@ -465,58 +489,417 @@
   <!-- health section -->
 
   <section class="health_section layout_padding">
-    <?php 
-      foreach($data as $ctgr)
-      {
-    ?>
     <div class="health_carousel-container">
       <h2 class="text-uppercase">
-        <?php 
-        echo $ctgr['name'];
-        ?>
+        Medicine & Health
 
       </h2>
       <div class="carousel-wrap layout_padding2">
         <div class="owl-carousel">
-          <?php 
-          foreach($ctgr['product'] as $product)
-          {
-          ?>
           <div class="item">
             <div class="box">
               <div class="btn_container">
-                <button class="btnBuy" data-datac="<?php echo $product['id']; ?>">
+                <a href="">
                   Buy Now
-                </button>
+                </a>
               </div>
               <div class="img-box">
-                <img src="<?php echo $product['img'];?>" alt="">
+                <img src="http://localhost:8080/weblayout/assets/images/p-1.jpg" alt="">
               </div>
               <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
                 <div class="text">
                   <h6>
-                    <?php echo $product['name'];?>
+                    Health
                   </h6>
                   <h6 class="price">
-    
-                    <?php echo $product['price'];?>VNĐ
+                    <span>
+                      $
+                    </span>
+                    30
                   </h6>
                 </div>
               </div>
-            </div>      
+            </div>
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-5.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Health
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
           </div>
-          <?php 
-          }
-          ?>
+          <div class="item">
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-2.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Health
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-5.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Health
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-3.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Health
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-5.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Health
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-4.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Health
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-5.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Health
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <?php 
-    }
-    ?>
+    <div class="health_carousel-container">
+      <h2 class="text-uppercase">
+        Vitamins & Supplements
 
+
+      </h2>
+      <div class="carousel-wrap layout_padding2">
+        <div class="owl-carousel owl-2">
+          <div class="item">
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-6.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Medicine
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-6.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Medicine
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-6.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Medicine
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="btn_container">
+                <a href="">
+                  Buy Now
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://localhost:8080/weblayout/assets/images/p-6.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="text">
+                  <h6>
+                    Medicine
+                  </h6>
+                  <h6 class="price">
+                    <span>
+                      $
+                    </span>
+                    30
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="d-flex justify-content-center">
-      <a href="<?php echo HOST;?>buy">
+      <a href="">
         See more
       </a>
     </div>
@@ -534,7 +917,7 @@
       </div>
 
       <div class="img-box">
-        <img src="<?php echo HOST;?>assets/images/about-medicine.png" alt="">
+        <img src="http://localhost:8080/weblayout/assets/images/about-medicine.png" alt="">
       </div>
       <div class="detail-box">
         <p>
@@ -543,7 +926,7 @@
           opposed to using 'Content here, content here', making it
         </p>
         <div class="d-flex justify-content-center">
-          <a href="<?php echo HOST;?>about">
+          <a href="">
             Read More
           </a>
         </div>
@@ -579,7 +962,7 @@
               </div>
               <div class="client_box ">
                 <div class="img-box">
-                  <img src="<?php echo HOST;?>assets/images/client.png " alt="">
+                  <img src="http://localhost:8080/weblayout/assets/images/client.png " alt="">
                 </div>
                 <div class="name">
                   <h5>
@@ -589,7 +972,7 @@
                     <span>
                       Client
                     </span>
-                    <img src="<?php echo HOST;?>assets/images/quote.png" alt="">
+                    <img src="http://localhost:8080/weblayout/assets/images/quote.png" alt="">
                   </h6>
                 </div>
               </div>
@@ -606,7 +989,7 @@
               </div>
               <div class="client_box ">
                 <div class="img-box">
-                  <img src="<?php echo HOST;?>assets/images/client.png " alt="">
+                  <img src="http://localhost:8080/weblayout/assets/images/client.png " alt="">
                 </div>
                 <div class="name">
                   <h5>
@@ -616,7 +999,7 @@
                     <span>
                       Client
                     </span>
-                    <img src="<?php echo HOST;?>assets/images/quote.png" alt="">
+                    <img src="http://localhost:8080/weblayout/assets/images/quote.png" alt="">
                   </h6>
                 </div>
               </div>
@@ -633,7 +1016,7 @@
               </div>
               <div class="client_box ">
                 <div class="img-box">
-                  <img src="<?php echo HOST;?>assets/images/client.png " alt="">
+                  <img src="http://localhost:8080/weblayout/assets/images/client.png " alt="">
                 </div>
                 <div class="name">
                   <h5>
@@ -643,7 +1026,7 @@
                     <span>
                       Client
                     </span>
-                    <img src="<?php echo HOST;?>assets/images/quote.png" alt="">
+                    <img src="http://localhost:8080/weblayout/assets/images/quote.png" alt="">
                   </h6>
                 </div>
               </div>
@@ -657,6 +1040,68 @@
   </section>
   <!-- end client section -->
 
+  <!-- contact section -->
+  <section class="contact_section">
+    <div class="container">
+      <div class="row">
+        <div class="custom_heading-container ">
+          <h2>
+            Request A call back
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="container layout_padding2">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form_contaier">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputName1">Name</label>
+                <input type="text" class="form-control" id="exampleInputName1">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputNumber1">Phone Number</label>
+                <input type="text" class="form-control" id="exampleInputNumber1">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email </label>
+                <input type="email" class="form-control" id="exampleInputEmail1">
+              </div>
+              <div class="form-group ">
+                <label for="inputState">Select medicine</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Medicine 1</option>
+                  <option value = "medicine 2">Medicine 2</option>
+                  <option value = "medicine 3">Medicine 3</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputMessage">Message</label>
+                <input type="text" class="form-control" id="exampleInputMessage">
+              </div>
+              <button type="submit" class="">Send</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="detail-box">
+            <h3>
+              Get Now Medicines
+            </h3>
+            <p>
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in some form, by injected humour, or randomised words which don't look even slightly believable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
   <!-- info section -->
   <section class="info_section layout_padding2">
     <div class="container">
@@ -668,7 +1113,7 @@
             </h4>
             <div class="box">
               <div class="img-box">
-                <img src="<?php echo HOST;?>assets/images/telephone-symbol-button.png" alt="">
+                <img src="http://localhost:8080/weblayout/assets/images/telephone-symbol-button.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -678,7 +1123,7 @@
             </div>
             <div class="box">
               <div class="img-box">
-                <img src="<?php echo HOST;?>assets/images/email.png" alt="">
+                <img src="http://localhost:8080/weblayout/assets/images/email.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -695,13 +1140,16 @@
             </h4>
             <ul class="navbar-nav  ">
               <li class="nav-item active">
-                <a class="nav-link" href="<?php echo HOST;?>home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo HOST;?>about"> About </a>
+                <a class="nav-link" href="about"> About </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo HOST;?>buy"> Online Buy </a>
+                <a class="nav-link" href="medicine"> Medicine </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="buy"> Online Buy </a>
               </li>
             </ul>
           </div>
@@ -732,16 +1180,14 @@
   <section class="container-fluid footer_section">
     <p>
       &copy; 2020 All Rights Reserved. Design by
-    <a href="#">SkyWall</a>
+     <a href="#">SkyWall</a>
     </p>
   </section>
   <!-- footer section -->
 
-  <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>  
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+  <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/bootstrap.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
   </script>
   <script type="text/javascript">
     $(".owl-carousel").owlCarousel({
@@ -784,7 +1230,6 @@
       }
     });
   </script>
-  <script src="<?php echo HOST;?>assets/js/home.js"></script>
 </body>
 
 </html>

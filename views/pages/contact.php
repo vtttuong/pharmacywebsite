@@ -23,14 +23,15 @@
 
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/css/bootstrap.css" />
+
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="<?php echo HOST;?>assets/css/style.css" rel="stylesheet" />
+  <link href="http://localhost:8080/weblayout/assets/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="<?php echo HOST;?>assets/css/responsive.css" rel="stylesheet" />
+  <link href="http://localhost:8080/weblayout/assets/css/responsive.css" rel="stylesheet" />
 </head>
 
 <body class="sub_page">
@@ -41,26 +42,26 @@
         <div class="top_contact-container">
           <div class="tel_container">
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
+              <img src="http://localhost:8080/weblayout/assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
             </a>
           </div>
           <div class="social-container">
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/fb.png" alt="" class="s-1">
+              <img src="http://localhost:8080/weblayout/assets/images/fb.png" alt="" class="s-1">
             </a>
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/twitter.png" alt="" class="s-2">
+              <img src="http://localhost:8080/weblayout/assets/images/twitter.png" alt="" class="s-2">
             </a>
             <a href="">
-              <img src="<?php echo HOST;?>assets/images/instagram.png" alt="" class="s-3">
+              <img src="http://localhost:8080/weblayout/assets/images/instagram.png" alt="" class="s-3">
             </a>
           </div>
         </div>
       </div>
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
-          <a class="navbar-brand" href="index.html">
-            <img src="<?php echo HOST;?>assets/images/logo.png" alt="">
+          <a class="navbar-brand" href="index">
+            <img src="http://localhost:8080/weblayout/assets/images/logo.png" alt="">
             <span>
               SkyWall
             </span>
@@ -74,22 +75,22 @@
             <div class="d-flex  flex-column flex-lg-row align-items-center w-100 justify-content-between">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About </a>
+                  <a class="nav-link" href="about"> About </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="medicine.html"> Medicine </a>
+                  <a class="nav-link" href="medicine"> Medicine </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="buy.html"> Online Buy </a>
+                  <a class="nav-link" href="buy"> Online Buy </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="news.html"> News </a>
+                  <a class="nav-link" href="news"> News </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact us</a>
+                  <a class="nav-link" href="contact">Contact us</a>
                 </li>
               </ul>
               <form class="form-inline ">
@@ -97,12 +98,31 @@
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
               <div class="login_btn-contanier ml-0 ml-lg-5">
-                <a href="">
-                  <img src="<?php echo HOST;?>assets/images/user.png" alt="">
-                  <span>
-                    Login
-                  </span>
-                </a>
+                <?php 
+                    if(isset($_SESSION['userlogin']))
+                    {
+                      $loginCheck = $_SESSION['userlogin'];
+                      if ($loginCheck==false){
+                        echo '<a href="user">
+                        <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                        <span>Login</span></a>';
+                      }
+                      else
+                      {
+                        echo '<a href="user/logout">
+                        <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                        <span>Logout</span></a>';
+                      }
+                    }
+                    else
+                    {
+                       echo '<a href="user">
+                      <img src="http://localhost:8080/weblayout/assets/images/user.png" alt="">
+                      <span>Login</span></a>';
+                    }
+  
+                ?>
+                
               </div>
             </div>
           </div>
@@ -133,21 +153,28 @@
             <form>
               <div class="form-group">
                 <label for="exampleInputName1">Name</label>
-                <input type="text" class="form-control" id="exampleInputName1" name="name">
+                <input type="text" class="form-control" id="exampleInputName1">
               </div>
               <div class="form-group">
                 <label for="exampleInputNumber1">Phone Number</label>
-                <input type="text" class="form-control" id="exampleInputNumber1" name="phone">
+                <input type="text" class="form-control" id="exampleInputNumber1">
               </div>
 
               <div class="form-group">
                 <label for="exampleInputEmail1">Email </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" name="email">
+                <input type="email" class="form-control" id="exampleInputEmail1">
               </div>
-
+              <div class="form-group ">
+                <label for="inputState">Select medicine</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Medicine 1</option>
+                  <option value="Medicine 2">Medicine 2</option>
+                  <option value="Medicine 3">Medicine 3</option>
+                </select>
+              </div>
               <div class="form-group">
                 <label for="exampleInputMessage">Message</label>
-                <input type="text" class="form-control" id="exampleInputMessage" name="message">
+                <input type="text" class="form-control" id="exampleInputMessage">
               </div>
               <button type="submit" class="">Send</button>
             </form>
@@ -181,7 +208,7 @@
             </h4>
             <div class="box">
               <div class="img-box">
-                <img src="<?php echo HOST;?>assets/images/telephone-symbol-button.png" alt="">
+                <img src="http://localhost:8080/weblayout/assets/images/telephone-symbol-button.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -191,7 +218,7 @@
             </div>
             <div class="box">
               <div class="img-box">
-                <img src="<?php echo HOST;?>assets/images/email.png" alt="">
+                <img src="http://localhost:8080/weblayout/assets/images/email.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -253,11 +280,9 @@
   </section>
   <!-- footer section -->
 
-  <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+  <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/bootstrap.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
   </script>
   <script type="text/javascript">
     $(".owl-carousel").owlCarousel({
@@ -300,7 +325,6 @@
       }
     });
   </script>
-  <script src="<?php echo HOST;?>assets/js/contact.js"></script>
 </body>
 
 </html>
