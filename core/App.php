@@ -13,7 +13,6 @@ class App{
             $this->controller = $arr[0];
             unset($arr[0]);
         }
-
         require_once "./controllers/". $this->controller .".php";
 
         // New Class Controller
@@ -27,7 +26,7 @@ class App{
                 $this->action = $arr[1];
             }
             else{
-                header('Location: http://localhost/weblayout/home/error/404');
+                header('Location: http://localhost:8080/weblayout/home/error/404');
             }
             unset($arr[1]);
         }
