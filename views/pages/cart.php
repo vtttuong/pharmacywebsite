@@ -95,6 +95,8 @@
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
               <div class="login_btn-contanier ml-0 ml-lg-5">
+              <div id="id_user" data-datac="<?php echo $_SESSION['id'];?>"></div>
+
               <?php if(!isset($_SESSION['id']))
                 echo'
                 <a href="'.HOST.'user">
@@ -149,6 +151,7 @@
               </thead>
               <tbody>
               <?php
+              if($data!=[])
               foreach($data as $product)
               {
               ?>
@@ -209,7 +212,7 @@
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
                 <h5 class="font-weight-bold" id="Total"></h5>
               </li>
-            </ul><a href="<?php echo HOST;?>cart/checkout" id="btnCheckout" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+            </ul><a href="" id="btnCheckout" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
           </div>
         </div>
       </div>

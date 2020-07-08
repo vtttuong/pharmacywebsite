@@ -1,15 +1,18 @@
 <?php
 class CartController extends Controller
 {
-
+    function __construct(){
+        if(!isset($_SESSION['id']))
+            header('Location: '.HOST.'user');
+    }
     public function index()
     {
         // Get obj in Cookie
-        if(isset($_COOKIE['cart']))
+        if(isset($_COOKIE['cart'.'_'.$_SESSION['id']]))
         {
-            $cart = $_COOKIE['cart'];
+            $cart = $_COOKIE['cart'.'_'.$_SESSION['id']];
             $cart = json_decode($cart,true);
-
+            
             $model = $this->model('cart');
             for($i=0;$i<count($cart);$i++)
             {
@@ -24,18 +27,20 @@ class CartController extends Controller
 
 
     public function checkout(){
-        if(!isset($_SESSION['id']))
-            header("LOCATION: ".HOST."user");
-        
-        if(isset($_COOKIE['cart']))
+
+        if(isset($_COOKIE['cart'.'_'.$_SESSION['id']]))
         {
-            $cart = $_COOKIE['cart'];
+            
+            $cart = $_COOKIE['cart'.'_'.$_SESSION['id']];
             $cart = json_decode($cart,true);
 
             $model = $this->model('cart');
-            $flag = $model->checkout($cart);
+            $flag = $model->checkout($cart,$_SESSION['id']);
             if($flag = true)
-            echo "success";
+            {
+                echo "success";
+            }
+            unset($model);
         }
         else
         {

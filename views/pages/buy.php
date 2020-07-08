@@ -93,6 +93,7 @@
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
               <div class="login_btn-contanier ml-0 ml-lg-5">
+              <div id="id_user" data-datac="<?php echo $_SESSION['id'];?>"></div>
               <?php if(!isset($_SESSION['id']))
                 echo'
                 <a href="'.HOST.'user">
@@ -122,7 +123,7 @@
   <!-- health section -->
 
   <section class="health_section layout_padding">
-    <?php 
+    <?php
       foreach($data as $ctgr)
       {
     ?>

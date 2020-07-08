@@ -1,13 +1,13 @@
-function setCookie(dataObj, value, exdays) {
+function setCookie(dataObj, user, value, exdays) {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60));
     var expires = "expires=" + d.toGMTString();
     value = JSON.stringify(value);
-    document.cookie = dataObj + "=" + value + ";" + expires + ";path=/";
+    document.cookie = dataObj + '_' + user + "=" + value + ";" + expires + ";path=/";
 }
 
-function getCookie(dataObj) {
-    var name = dataObj + "=";
+function getCookie(dataObj, user) {
+    var name = dataObj + '_' + user + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
     for (var i = 0; i < ca.length; i++) {
@@ -38,13 +38,15 @@ calcTotalPrice = () => {
         subTotal += val;
     });
 
-    console.log(subTotal);
     Total = subTotal + shipFee;
     $('#subTotal').html(subTotal + ' VND');
     $('#Total').html(Total + ' VND');
 }
 
 $(document).ready(function() {
+    var user = $('#id_user').data('datac');
+
+
     calcTotalPrice();
 
     $('.qty').keyup(function() {
@@ -56,7 +58,7 @@ $(document).ready(function() {
         $(this).val(qty);
 
         let id = $(this).data('datac');
-        let cart = getCookie('cart');
+        let cart = getCookie('cart', user);
         for (let i = 0; i < cart.length; i++) {
             if (cart[i][0] == id) {
                 cart[i][1] = qty;
@@ -66,7 +68,7 @@ $(document).ready(function() {
         }
 
         if (!flag) return false;
-        setCookie('cart', cart);
+        setCookie('cart', user, cart, 1);
         calcTotalPrice();
 
     })
@@ -74,7 +76,7 @@ $(document).ready(function() {
     $('.qty').click(function() {
         let qty = $(this).val();
         let id = $(this).data('datac');
-        let cart = getCookie('cart');
+        let cart = getCookie('cart', user);
         for (let i = 0; i < cart.length; i++) {
             if (cart[i][0] == id) {
                 cart[i][1] = qty;
@@ -83,7 +85,7 @@ $(document).ready(function() {
             }
         }
         if (!flag) return false;
-        setCookie('cart', cart);
+        setCookie('cart', user, cart, 1);
         calcTotalPrice();
 
     })
@@ -91,7 +93,7 @@ $(document).ready(function() {
     $('.btnRemove').click(function() {
         let id = $(this).data('datac');
 
-        let cart = getCookie('cart');
+        let cart = getCookie('cart', user);
         for (let i = 0; i < cart.length; i++) {
             if (cart[i][0] == id) {
                 cart.splice(i, 1);
@@ -100,10 +102,30 @@ $(document).ready(function() {
             }
         }
         if (!flag) return false;
-        setCookie('cart', cart);
+        setCookie('cart', user, cart, 1);
         $("tr#" + id).remove();
         calcTotalPrice();
 
     })
 
+    $('#btnCheckout').click(function() {
+        if (getCookie('cart', user).length == 0) {
+            alert('No item to checkout');
+            return false;
+        }
+
+        $.ajax({
+            type: 'get',
+            url: 'cart/checkout',
+            cache: false,
+            success: function(res) {
+                setCookie('cart', user, 'none', -1);
+                calcTotalPrice();
+                alert(res);
+            },
+            error: function(err) {
+                alert("Checkout Failed");
+            }
+        })
+    })
 })

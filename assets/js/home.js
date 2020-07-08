@@ -1,13 +1,13 @@
-function setCookie(dataObj, value, exdays) {
+function setCookie(dataObj, user, value, exdays) {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60));
     var expires = "expires=" + d.toGMTString();
     value = JSON.stringify(value);
-    document.cookie = dataObj + "=" + value + ";" + expires + ";path=/";
+    document.cookie = dataObj + '_' + user + "=" + value + ";" + expires + ";path=/";
 }
 
-function getCookie(dataObj) {
-    var name = dataObj + "=";
+function getCookie(dataObj, user) {
+    var name = dataObj + '_' + user + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
     for (var i = 0; i < ca.length; i++) {
@@ -26,10 +26,16 @@ function getCookie(dataObj) {
 }
 
 $(document).ready(function() {
+    var user = $('#id_user').data('datac');
+
     $(".btnBuy").click(function() {
+        if (user == '') {
+            alert("Please login before add to cart!");
+            return false;
+        }
         let flag = false;
-        var id = $(this).data('datac');
-        let cart = getCookie('cart');
+        let id = $(this).data('datac');
+        let cart = getCookie('cart', user);
         if (cart.length == 0) {
             cart.push([id, 1]);
         } else {
@@ -45,7 +51,7 @@ $(document).ready(function() {
             }
         }
         //update cookie
-        setCookie('cart', cart, 1);
+        setCookie('cart', user, cart, 1);
         alert("success");
 
     })
