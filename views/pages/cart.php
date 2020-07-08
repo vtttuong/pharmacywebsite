@@ -23,15 +23,25 @@
 
 
   <!-- bootstrap core css -->
+<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/css/bootstrap.css" />
+=======
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+>>>>>>> master
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template -->
+<<<<<<< HEAD
   <link href="http://localhost:8080/weblayout/assets/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="http://localhost:8080/weblayout/assets/css/responsive.css" rel="stylesheet" />
+=======
+  <link href="<?php echo HOST;?>assets/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="<?php echo HOST;?>assets/css/responsive.css" rel="stylesheet" />
+>>>>>>> master
 </head>
 
 <body class="sub_page">
@@ -42,11 +52,16 @@
         <div class="top_contact-container">
           <div class="tel_container">
             <a href="">
+<<<<<<< HEAD
               <img src="http://localhost:8080/weblayout/assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
+=======
+              <img src="<?php echo HOST;?>assets/images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
+>>>>>>> master
             </a>
           </div>
           <div class="social-container">
             <a href="">
+<<<<<<< HEAD
               <img src="http://localhost:8080/weblayout/assets/images/fb.png" alt="" class="s-1">
             </a>
             <a href="">
@@ -54,6 +69,15 @@
             </a>
             <a href="">
               <img src="http://localhost:8080/weblayout/assets/images/instagram.png" alt="" class="s-3">
+=======
+              <img src="<?php echo HOST;?>assets/images/fb.png" alt="" class="s-1">
+            </a>
+            <a href="">
+              <img src="<?php echo HOST;?>assets/images/twitter.png" alt="" class="s-2">
+            </a>
+            <a href="">
+              <img src="<?php echo HOST;?>assets/images/instagram.png" alt="" class="s-3">
+>>>>>>> master
             </a>
           </div>
         </div>
@@ -61,7 +85,11 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
           <a class="navbar-brand" href="index">
+<<<<<<< HEAD
             <img src="http://localhost:8080/weblayout/assets/images/logo.png" alt="">
+=======
+            <img src="<?php echo HOST;?>assets/images/logo.png" alt="">
+>>>>>>> master
             <span>
               SkyWall
             </span>
@@ -81,6 +109,7 @@
                   <a class="nav-link" href="about"> About </a>
                 </li>
                 <li class="nav-item">
+<<<<<<< HEAD
                   <a class="nav-link" href="medicine"> Medicine </a>
                 </li>
                 <li class="nav-item">
@@ -88,6 +117,12 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="news"> News </a>
+=======
+                  <a class="nav-link" href="buy"> Online Buy </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="cart"> Cart </a>
+>>>>>>> master
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contact">Contact us</a>
@@ -98,6 +133,7 @@
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
               <div class="login_btn-contanier ml-0 ml-lg-5">
+<<<<<<< HEAD
                 <?php 
                     if(isset($_SESSION['userlogin']))
                     {
@@ -123,6 +159,14 @@
   
                 ?>
                 
+=======
+                <a href="">
+                  <img src="<?php echo HOST;?>assets/images/user.png" alt="">
+                  <span>
+                    Login
+                  </span>
+                </a>
+>>>>>>> master
               </div>
             </div>
           </div>
@@ -164,6 +208,7 @@
                 </tr>
               </thead>
               <tbody>
+<<<<<<< HEAD
                 <tr>
                   <th scope="row" class="border-0">
                     <div class="p-2">
@@ -211,6 +256,33 @@
                     <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
+=======
+              <?php
+              foreach($data as $product)
+              {
+              ?>
+                <tr>
+                  <th scope="row" class="border-0">
+                    <div class="p-2">
+                      <img src="<?php echo $product[0]['img'];?>" alt="" width="70" class="img-fluid rounded shadow-sm">
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><?php echo $product[0]['name'];?></a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: <?php echo $product[0]['category'];?></span>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="border-0 align-middle"><strong><?php echo $product[0]['price']; ?></strong></td>
+                  <td class="border-0 align-middle">
+                    <strong>   
+                      <input type="number" step="1" max="99" min="1" value="<?php echo $product[1];?>" title="Qty" class="qty"
+                       size="4" style="text-align:center; font-weight:bold; color: #212529;">
+                    </strong>
+                  </td>
+                  <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                </tr>
+              <?php
+              }
+              ?>
+>>>>>>> master
               </tbody>
             </table>
           </div>
@@ -267,7 +339,11 @@
             </h4>
             <div class="box">
               <div class="img-box">
+<<<<<<< HEAD
                 <img src="http://localhost:8080/weblayout/assets/images/telephone-symbol-button.png" alt="">
+=======
+                <img src="<?php echo HOST;?>assets/images/telephone-symbol-button.png" alt="">
+>>>>>>> master
               </div>
               <div class="detail-box">
                 <h6>
@@ -277,7 +353,11 @@
             </div>
             <div class="box">
               <div class="img-box">
+<<<<<<< HEAD
                 <img src="http://localhost:8080/weblayout/assets/images/email.png" alt="">
+=======
+                <img src="<?php echo HOST;?>assets/images/email.png" alt="">
+>>>>>>> master
               </div>
               <div class="detail-box">
                 <h6>
@@ -339,8 +419,17 @@
   </section>
   <!-- footer section -->
 
+<<<<<<< HEAD
   <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/bootstrap.js"></script>
+=======
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </script>
+>>>>>>> master
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
   </script>
   <script type="text/javascript">
@@ -384,6 +473,10 @@
       }
     });
   </script>
+<<<<<<< HEAD
+=======
+  <script src="<?php echo HOST; ?>assets/js/cart.js"></script>
+>>>>>>> master
 </body>
 
 </html>

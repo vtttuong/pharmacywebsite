@@ -23,8 +23,12 @@
 
 
   <!-- bootstrap core css -->
+<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/css/bootstrap.css" />
 
+=======
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+>>>>>>> master
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <!-- Custom styles for this template -->
@@ -74,6 +78,7 @@
             <div class="d-flex  flex-column flex-lg-row align-items-center w-100 justify-content-between">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
+<<<<<<< HEAD
                   <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -81,8 +86,16 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="medicine"> Medicine </a>
+=======
+                  <a class="nav-link" href="<?php echo HOST;?>home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="<?php echo HOST;?>about"> About </a>
+>>>>>>> master
+                </li>
+
+                <li class="nav-item">
+<<<<<<< HEAD
                   <a class="nav-link" href="buy"> Online Buy </a>
                 </li>
                 <li class="nav-item">
@@ -90,6 +103,15 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contact">Contact us</a>
+=======
+                  <a class="nav-link" href="<?php echo HOST;?>buy"> Online Buy </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo HOST;?>news"> News </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo HOST;?>contact">Contact us</a>
+>>>>>>> master
                 </li>
               </ul>
               <form class="form-inline ">
@@ -139,16 +161,27 @@
   <!-- health section -->
 
   <section class="health_section layout_padding">
+    <?php 
+      foreach($data as $ctgr)
+      {
+    ?>
     <div class="health_carousel-container">
       <h2 class="text-uppercase">
-        Medicine & Health
+        <?php 
+        echo $ctgr['name'];
+        ?>
 
       </h2>
       <div class="carousel-wrap layout_padding2">
         <div class="owl-carousel">
+          <?php 
+          foreach($ctgr['product'] as $product)
+          {
+          ?>
           <div class="item">
             <div class="box">
               <div class="btn_container">
+<<<<<<< HEAD
                 <a href="">
                   Buy Now
                 </a>
@@ -488,21 +521,22 @@
               </div>
               <div class="img-box">
                 <img src="http://localhost:8080/weblayout/assets/images/p-6.jpg" alt="">
+=======
+                <button class="btnBuy" data-datac="<?php echo $product['id']; ?>">
+                  Buy Now
+                </button>
+              </div>
+              <div class="img-box">
+                <img src="<?php echo $product['img'];?>" alt="">
+>>>>>>> master
               </div>
               <div class="detail-box">
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-
-                </div>
                 <div class="text">
                   <h6>
-                    Medicine
+                    <?php echo $product['name'];?>
                   </h6>
                   <h6 class="price">
+<<<<<<< HEAD
                     <span>
                       $
                     </span>
@@ -529,30 +563,24 @@
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star-o" aria-hidden="true"></i>
+=======
+>>>>>>> master
 
-                </div>
-                <div class="text">
-                  <h6>
-                    Medicine
-                  </h6>
-                  <h6 class="price">
-                    <span>
-                      $
-                    </span>
-                    30
+                    <?php echo $product['price'];?>VNĐ
                   </h6>
                 </div>
               </div>
-            </div>
+            </div>      
           </div>
+          <?php 
+          }
+          ?>
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
-      <a href="">
-        See more
-      </a>
-    </div>
+    <?php 
+    }
+    ?>
   </section>
 
   <!-- end health section -->
@@ -642,9 +670,17 @@
   </section>
   <!-- footer section -->
 
+<<<<<<< HEAD
   <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/bootstrap.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+=======
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+>>>>>>> master
   </script>
   <script type="text/javascript">
     $(".owl-carousel").owlCarousel({
@@ -687,6 +723,7 @@
       }
     });
   </script>
+  <script src="<?php echo HOST;?>assets/js/buy.js"></script>
 </body>
 
 </html>

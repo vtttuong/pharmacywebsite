@@ -22,8 +22,12 @@
 
 
   <!-- bootstrap core css -->
+<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/css/bootstrap.css" />
 
+=======
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+>>>>>>> master
   <!-- fonts style -->
  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <!-- Custom styles for this template -->
@@ -499,9 +503,9 @@
           <div class="item">
             <div class="box">
               <div class="btn_container">
-                <a href="">
+                <button class="btnBuy" data-datac="<?php echo $product['id']; ?>">
                   Buy Now
-                </a>
+                </button>
               </div>
               <div class="img-box">
                 <img src="http://localhost:8080/weblayout/assets/images/p-1.jpg" alt="">
@@ -648,10 +652,15 @@
                     Health
                   </h6>
                   <h6 class="price">
+<<<<<<< HEAD
                     <span>
                       $
                     </span>
                     30
+=======
+    
+                    <?php echo $product['price'];?>VNĐ
+>>>>>>> master
                   </h6>
                 </div>
               </div>
@@ -1040,68 +1049,6 @@
   </section>
   <!-- end client section -->
 
-  <!-- contact section -->
-  <section class="contact_section">
-    <div class="container">
-      <div class="row">
-        <div class="custom_heading-container ">
-          <h2>
-            Request A call back
-          </h2>
-        </div>
-      </div>
-    </div>
-    <div class="container layout_padding2">
-      <div class="row">
-        <div class="col-md-5">
-          <div class="form_contaier">
-            <form>
-              <div class="form-group">
-                <label for="exampleInputName1">Name</label>
-                <input type="text" class="form-control" id="exampleInputName1">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputNumber1">Phone Number</label>
-                <input type="text" class="form-control" id="exampleInputNumber1">
-              </div>
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email </label>
-                <input type="email" class="form-control" id="exampleInputEmail1">
-              </div>
-              <div class="form-group ">
-                <label for="inputState">Select medicine</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Medicine 1</option>
-                  <option value = "medicine 2">Medicine 2</option>
-                  <option value = "medicine 3">Medicine 3</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputMessage">Message</label>
-                <input type="text" class="form-control" id="exampleInputMessage">
-              </div>
-              <button type="submit" class="">Send</button>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-7">
-          <div class="detail-box">
-            <h3>
-              Get Now Medicines
-            </h3>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end contact section -->
-
   <!-- info section -->
   <section class="info_section layout_padding2">
     <div class="container">
@@ -1185,9 +1132,17 @@
   </section>
   <!-- footer section -->
 
+<<<<<<< HEAD
   <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/bootstrap.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+=======
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+>>>>>>> master
   </script>
   <script type="text/javascript">
     $(".owl-carousel").owlCarousel({
@@ -1230,6 +1185,7 @@
       }
     });
   </script>
+  <script src="<?php echo HOST;?>assets/js/home.js"></script>
 </body>
 
 </html>

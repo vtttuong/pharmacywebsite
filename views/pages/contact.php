@@ -23,8 +23,12 @@
 
 
   <!-- bootstrap core css -->
+<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="http://localhost:8080/weblayout/assets/css/bootstrap.css" />
 
+=======
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+>>>>>>> master
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
@@ -153,28 +157,21 @@
             <form>
               <div class="form-group">
                 <label for="exampleInputName1">Name</label>
-                <input type="text" class="form-control" id="exampleInputName1">
+                <input type="text" class="form-control" id="exampleInputName1" name="name">
               </div>
               <div class="form-group">
                 <label for="exampleInputNumber1">Phone Number</label>
-                <input type="text" class="form-control" id="exampleInputNumber1">
+                <input type="text" class="form-control" id="exampleInputNumber1" name="phone">
               </div>
 
               <div class="form-group">
                 <label for="exampleInputEmail1">Email </label>
-                <input type="email" class="form-control" id="exampleInputEmail1">
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email">
               </div>
-              <div class="form-group ">
-                <label for="inputState">Select medicine</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Medicine 1</option>
-                  <option value="Medicine 2">Medicine 2</option>
-                  <option value="Medicine 3">Medicine 3</option>
-                </select>
-              </div>
+
               <div class="form-group">
                 <label for="exampleInputMessage">Message</label>
-                <input type="text" class="form-control" id="exampleInputMessage">
+                <input type="text" class="form-control" id="exampleInputMessage" name="message">
               </div>
               <button type="submit" class="">Send</button>
             </form>
@@ -280,9 +277,17 @@
   </section>
   <!-- footer section -->
 
+<<<<<<< HEAD
   <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="http://localhost:8080/weblayout/assets/js/bootstrap.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+=======
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+>>>>>>> master
   </script>
   <script type="text/javascript">
     $(".owl-carousel").owlCarousel({
@@ -325,6 +330,7 @@
       }
     });
   </script>
+  <script src="<?php echo HOST;?>assets/js/contact.js"></script>
 </body>
 
 </html>
