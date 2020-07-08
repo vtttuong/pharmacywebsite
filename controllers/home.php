@@ -11,6 +11,7 @@ class HomeController extends Controller
             $ctgr[$i]['product'] = $model->fetchProduct($ctgr[$i]['id'],0,8);
         }
         $this->view('index',["data"=>$ctgr]);
+        unset($model);
     }
 
     public function error($type)

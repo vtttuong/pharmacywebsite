@@ -11,6 +11,7 @@ class BuyController extends Controller
             $ctgr[$i]['product'] = $model->fetchProduct($ctgr[$i]['id']);
         }
         $this->view('buy',["data"=>$ctgr]);
+        unset($model);
     }
 
 }

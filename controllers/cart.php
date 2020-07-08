@@ -15,6 +15,7 @@ class CartController extends Controller
             {
                 $cart[$i][0] = $model->fetchProduct($cart[$i][0]);
             }
+            unset($model);
         }
         else
             $cart=[];

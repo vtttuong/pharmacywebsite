@@ -101,7 +101,7 @@
         public function logout(){
             unset($_SESSION['id']);
             unset($_SESSION['name']);
-            
+            header("LOCATION:".HOST);
         }
 
         public function add(){
