@@ -81,13 +81,10 @@
                   <a class="nav-link" href="about"> About </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="medicine"> Medicine </a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="buy"> Online Buy </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="news"> News </a>
+                  <a class="nav-link" href="cart"> Cart </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contact">Contact us</a>

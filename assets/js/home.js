@@ -26,7 +26,7 @@ function getCookie(dataObj) {
 }
 
 $(document).ready(function() {
-    $(".btnBuy").click(async function() {
+    $(".btnBuy").click(function() {
         var id = $(this).data('datac');
         let cart = getCookie('cart');
         if (cart.length == 0) {
@@ -42,5 +42,6 @@ $(document).ready(function() {
         //update cookie
         setCookie('cart', cart, 1);
         alert("success");
+
     })
 })
