@@ -109,4 +109,144 @@ class UserModel extends DB{
         }
     }
 
+
+    public function changeUsername($data)
+    {
+        try{
+            $stmt =$this->conn->prepare('UPDATE USER
+            SET username = :username
+            WHERE id = :id');
+            $stmt->execute([
+                ":username"=>$data['username'],
+                ":id"=>$data['id']
+            ]);
+
+            return true;
+        }
+        catch(PDOException $e)
+        {
+            return false;
+        }
+    }
+    
+    public function changeEmail($data)
+    {
+        try{
+            $stmt =$this->conn->prepare('UPDATE USER
+            SET email = :email
+            WHERE id = :id');
+            $stmt->execute([
+                ":email"=>$data['email'],
+                ":id"=>$data['id']
+            ]);
+
+            return true;
+        }
+        catch(PDOException $e)
+        {
+            return false;
+        }
+    }
+    public function changePhone($data)
+    {
+        try{
+            $stmt =$this->conn->prepare('UPDATE USER
+            SET phone = :phone
+            WHERE id = :id');
+            $stmt->execute([
+                ":phone"=>$data['phone'],
+                ":id"=>$data['id']
+            ]);
+
+            return true;
+        }
+        catch(PDOException $e)
+        {
+            return false;
+        }
+    }
+    public function changeName($data)
+    {
+        try{
+            $stmt =$this->conn->prepare('UPDATE USER
+            SET name = :name
+            WHERE id = :id');
+            $stmt->execute([
+                ":name"=>$data['name'],
+                ":id"=>$data['id']
+            ]);
+            $_SESSION['name'] = $data['name'];    
+            return true;
+        }
+        catch(PDOException $e)
+        {
+            return false;
+        }
+    }
+    public function changeBirthday($data)
+    {
+        try{
+            $stmt =$this->conn->prepare('UPDATE USER
+            SET birthday = :birthday
+            WHERE id = :id');
+            $stmt->execute([
+                ":birthday"=>$data['birthday'],
+                ":id"=>$data['id']
+            ]);
+
+            return true;
+        }
+        catch(PDOException $e)
+        {
+            return false;
+        }
+    }
+    public function changeSex($data)
+    {
+        try{
+            $stmt =$this->conn->prepare('UPDATE USER
+            SET sex = :sex
+            WHERE id = :id');
+            $stmt->execute([
+                ":sex"=>$data['sex'],
+                ":id"=>$data['id']
+            ]);
+
+            return true;
+        }
+        catch(PDOException $e)
+        {
+            return false;
+        }
+    }
+     
+    public function getUserProfile($id)
+    {
+        try{
+            $stmt = $this->conn->prepare("SELECT * FROM USER WHERE id = :id");
+            $stmt->execute([":id"=>$id]);
+
+            $res = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $res;
+        }
+        catch(PDOException $e)
+        {
+            die($e->getMessage());
+        }
+    }
+    
+    public function delete($id){
+
+        //delete on database
+        try{
+            $stmt = $this->conn->prepare("DELETE FROM ADMIN WHERE id = :id");
+            $stmt->execute([":id"=>$id]);
+        }
+        catch(PDOException $e)
+        {
+            return $e->getMessage();
+        }
+    }
+
 }

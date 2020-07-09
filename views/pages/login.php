@@ -16,7 +16,7 @@
     <div class="login">
         <div class="login-triangle"></div>
         
-        <h2 class="login-header">Admin</h2>
+        <h2 class="login-header">Login</h2>
 
         <form class="login-container">
           <p><input type="username" placeholder="Username" name="username" data-require id="username"></p>

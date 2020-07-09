@@ -44,6 +44,14 @@
             </a>
           </div>
           <div class="social-container">
+          <?php 
+            if(isset($_SESSION['id']))
+            {
+              $x = '<a href="user/userprofile" style="font-family: '.'Roboto'.', sans-serif; color: black; font-weigth:bolder;">';
+              $y = ' </a>';
+              echo $x.'Xin chào, '.$_SESSION['name'].$y;
+            }        
+          ?> 
             <a href="">
               <img src="<?php echo HOST;?>assets/images/fb.png" alt="" class="s-1">
             </a>

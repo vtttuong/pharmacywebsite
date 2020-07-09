@@ -131,4 +131,78 @@
             unset($model);
 
         }
+        public function userprofile()
+        { 
+            $this->view('userprofile');
+        }
+    
+        
+    
+        public function getUserProfile($id)
+        {
+            $model = $this->model('user');
+            return $model->getUserProfile($id);
+        }
+    
+        public function updateUserProfile($data, $olddata)
+        {
+           $model = $this->model('user');
+           
+           $flag = false;
+           if(isset($data['username'])&&($data['username']!=$olddata['username'])&&($data['username']!=''))
+            {
+                $model->changeUsername($data);
+                $flag = true;
+                echo '<script type="text/javascript">location.reload();</script>';
+            }
+     
+    
+           if(isset($data['name'])&&($data['name']!=$olddata['name'])&&($data['name']!=''))
+           {
+                $model->changeName($data);
+                $flag = true;
+                echo '<script type="text/javascript">location.reload();</script>';
+           }
+         
+    
+           if(isset($data['birthday'])&&($data['birthday']!=$olddata['birthday'])&&($data['birthday']!=''))
+           {
+                $model->changeBirthday($data);
+                $flag = true;
+                echo '<script type="text/javascript">location.reload();</script>';
+           }
+           
+    
+           if(isset($data['sex'])&&($data['sex']!=$olddata['sex'])&&($data['sex']!=''))
+           {
+                $model->changeSex($data);
+                
+                echo '<script type="text/javascript">location.reload();</script>';
+                $flag = true;
+           }
+          
+    
+           if(isset($data['email'])&&($data['email']!=$olddata['email'])&&($data['email']!=''))
+           {
+                $model->changeEmail($data);
+                $flag = true;
+                echo '<script type="text/javascript">location.reload();</script>';
+           }
+          
+           if(isset($data['phone'])&&($data['phone']!=$olddata['phone'])&&($data['phone']!=''))
+           {
+                $model->changePhone($data);
+                $flag = true;
+                echo '<script type="text/javascript">location.reload();</script>';
+           }
+        
+    
+          if(isset($data['password'])&&($data['password']!=$olddata['password'])&&($data['password']!=''))
+          {
+                $model->changePass($data);
+                $flag = true;
+                echo '<script type="text/javascript">location.reload();</script>';
+          }
+          return $flag;
+        }    
     }
