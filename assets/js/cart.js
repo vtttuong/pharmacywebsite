@@ -1,6 +1,6 @@
 function setCookie(dataObj, user, value, exdays) {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60));
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 10000));
     var expires = "expires=" + d.toGMTString();
     value = JSON.stringify(value);
     document.cookie = dataObj + '_' + user + "=" + value + ";" + expires + ";path=/";
